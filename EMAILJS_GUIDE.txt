@@ -1,0 +1,60 @@
+GUIDE: HOW TO CHANGE EMAILJS CREDENTIALS
+=======================================
+
+This guide explains where to change EmailJS service ID, template ID, and public key in the application.
+
+1. DEVELOPMENT ENVIRONMENT
+------------------------
+File Path: client/.env
+
+Change these variables:
+VITE_EMAILJS_USER_ID=your_emailjs_user_id_here
+VITE_EMAILJS_SERVICE_ID=your_emailjs_service_id_here
+VITE_EMAILJS_VALIDATION_TEMPLATE_ID=your_validation_template_id_here
+VITE_EMAILJS_CONFIRMATION_TEMPLATE_ID=your_confirmation_template_id_here
+
+2. PRODUCTION ENVIRONMENT
+------------------------
+File Path: client/.env.production
+
+Change the same variables:
+VITE_EMAILJS_USER_ID=your_emailjs_user_id_here
+VITE_EMAILJS_SERVICE_ID=your_emailjs_service_id_here
+VITE_EMAILJS_VALIDATION_TEMPLATE_ID=your_validation_template_id_here
+VITE_EMAILJS_CONFIRMATION_TEMPLATE_ID=your_confirmation_template_id_here
+
+3. VERCEL DEPLOYMENT
+-------------------
+File Path: VERCEL_DEPLOYMENT.md
+
+In the Vercel dashboard:
+1. Go to Project Settings > Environment Variables
+2. Add/Update these variables:
+   - VITE_EMAILJS_USER_ID
+   - VITE_EMAILJS_SERVICE_ID
+   - VITE_EMAILJS_VALIDATION_TEMPLATE_ID
+   - VITE_EMAILJS_CONFIRMATION_TEMPLATE_ID
+
+4. REFERENCE FILES
+----------------
+The following file uses these environment variables but doesn't need modification:
+File Path: client/src/lib/emailService.ts
+
+IMPORTANT NOTES
+--------------
+1. Never commit actual credentials to the repository
+2. Always use environment variables
+3. After changing credentials:
+   - Restart the development server
+   - Redeploy to Vercel for production changes
+4. Keep your credentials secure and never share them publicly
+5. Make sure to update ALL environment files to maintain consistency
+
+HOW TO GET NEW CREDENTIALS
+-------------------------
+1. Log in to your EmailJS account (https://dashboard.emailjs.com)
+2. Go to Email Services to get your Service ID
+3. Go to Email Templates to get Template IDs
+4. Find your User ID in the Integration section
+
+For any issues, please contact your administrator or EmailJS support.
